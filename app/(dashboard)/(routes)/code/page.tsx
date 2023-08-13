@@ -1,24 +1,24 @@
 "use client";
-import * as z from "zod";
 import { Heading } from "@/components/heading";
-import { Code } from "lucide-react";
-import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
+import { Code } from "lucide-react";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
 
-import { formSchema } from "./constants";
-import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
-import { ChatCompletionRequestMessage } from "openai";
+import { BotAvatar } from "@/components/bot-avatar";
 import { Empty } from "@/components/empty";
 import { Loader } from "@/components/loader";
-import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
 import { UserAvatar } from "@/components/user-avatar";
-import { BotAvatar } from "@/components/bot-avatar";
+import { cn } from "@/lib/utils";
+import { useRouter } from "next/navigation";
+import { ChatCompletionRequestMessage } from "openai";
+import { useState } from "react";
 import ReactMarkdown from "react-markdown";
+import { formSchema } from "./constants";
 
 const CodePage = () => {
   const router = useRouter();
@@ -130,7 +130,7 @@ const CodePage = () => {
                       ),
                       code: ({ node, ...props }) => (
                         <code
-                          className="bg-black/10 p-1 rounded-lg"
+                          className="bg-black/10 rounded-lg p-1"
                           {...props}
                         />
                       ),
